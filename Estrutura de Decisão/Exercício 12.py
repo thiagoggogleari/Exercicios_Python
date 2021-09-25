@@ -86,5 +86,3 @@ string6 = ('Total de descontos:')
 print(string6,end='')
 print('-'*(spaces - len(string6)),end='')
 print(': R${:.2f}'.format(salBruto - iRenda - inss - sindicato))
-
-
