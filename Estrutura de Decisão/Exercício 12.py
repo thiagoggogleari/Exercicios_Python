@@ -82,7 +82,7 @@ print('-'*(spaces - len(string5)),end='')
 print(': R${:.2f}'.format(sindicato))
 print()
 
-string6 = ('Total de descontos:')
+string6 = ('Salário Líquido:')
 print(string6,end='')
 print('-'*(spaces - len(string6)),end='')
 print(': R${:.2f}'.format(salBruto - iRenda - inss - sindicato))
