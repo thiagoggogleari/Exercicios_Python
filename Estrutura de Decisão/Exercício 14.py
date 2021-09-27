@@ -36,4 +36,12 @@ elif media >= 4:
   conceito = 'D'
 elif media >= 0:
   conceito = 'E'
-print('Sua média é %.2f que tem conceito %s'%(media,conceito))
+
+if conceito == 'A' or conceito == 'B':
+  situacao = 'Aprovado'
+elif conceito == 'C'or conceito == 'D' or conceito == 'E':
+  situacao = 'Reprovado'
+
+print('A média atingida foi %.2f que é conceito %s. Aluno %s.'%(media,conceito,situacao))
+
+
