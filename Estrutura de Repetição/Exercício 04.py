@@ -17,7 +17,7 @@ while paisB > paisA:
   paisA = paisA + (paisA * taxaCrescA)
   paisB = paisB + (paisB * taxaCrescB)
 
-print('O país B irá ultrapassar o país A no %i° ano'%(ano))
+print('O país A irá ultrapassar o país B no %i° ano'%(ano))
 print()
 print('País A = %i habitantes'%(paisA))
 print('País B = %i habitantes'%(paisB))
