@@ -10,7 +10,7 @@ soma = 0
 if num2 > num1: 
   
   # Diferença entre os números inseridos
-  rangeEntreNum = num2 - num13
+  rangeEntreNum = num2 - num1
 
   # Caso os números seja sequenciais, não há inteiro entre eles
   if rangeEntreNum == 1:
