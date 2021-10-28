@@ -1,38 +1,38 @@
 # Faça um programa que calcule o fatorial de um número inteiro fornecido pelo usuário. Ex.: 5!=5.4.3.2.1=120
+
 numInicial = int(input('Deseja realizar o fatorial de qual número (n!): '))
 
+while numInicial < 0:
+  print('Número não pode ser negativo')
+  numInicial = int(input('Deseja realizar o fatorial de qual número (n!): '))
+
+lista = []
 numAtual = numInicial
 numAntecessor = numInicial - 1
-somatoria = 0
-lista = []
 
-# Realiza a primeira conta do fatorial
-somatoria = numAtual * numAntecessor  
-# Adicona o resultado a uma lista
-lista.append(somatoria)
-
-# Decrementa o número antecessor.
-numAntecessor -= 1
-
-# Enquanto o número antecessor não chega a 1 (Propriedade do fatorial)
 while numAntecessor > 1:
-  somatoria = somatoria * numAntecessor
-  lista.append(somatoria)
+  numAtual = numAtual * numAntecessor
+  lista.append(numAtual)
   numAntecessor -= 1
 
-
+# Mostra a lista que foi montada, com os resultado dos cálculos
+# print(lista)
 
 # Montagem da tela de apresentação dos cálculos
-print('%i! ='%(numInicial),end='')
+print('%i!= '%(numInicial),end='')
 
 contador = numInicial
-# Este laço tenho a impressão de que podia ter sido escrito de outra maneira mais simples
-for i in range(numInicial):
-  if i <= numInicial -2:
-    print('%i.'%contador,end='')
-  else:
-    print('%i='%contador,end='')
-  contador -= 1
-   
-print('%i'%somatoria)
-  
+
+# Propriedade de fatorial de 0! e 1!, tem resultado 1
+if numInicial == 0 or numInicial == 1:
+  print('1')
+else:
+# Apresenta na tela os fatores
+  for i in range(numInicial):
+    if i <= numInicial -2:
+      print('%i.'%contador,end='')
+    else:
+      print('%i = '%contador,end='')
+    contador -= 1
+    
+  print('%i'%numAtual)
