@@ -29,7 +29,7 @@ for i in range(5):
   espacosDivida = 13 - valorDaDividaFORMAT
 
   print(' '*(espacosDivida),end='')
-  print('R$%.2f'%(valorDaDivida),end='') # Fixo
+  print('R$%.2f'%(valorDaDivida),end='') 
 
 ##############################################################################
   # Valor dos juros
@@ -45,7 +45,7 @@ for i in range(5):
   espacosParcelas = 14 - len(str(parcelas[i]))
 
   print(' '*(espacosParcelas),end='')
-  print(parcelas[i],end='')# Altera
+  print(parcelas[i],end='')
 ##############################################################################
   # Valor das Parcelas
   valorDaParcela = round(valorDaDivida / parcelas[i], 2)  
