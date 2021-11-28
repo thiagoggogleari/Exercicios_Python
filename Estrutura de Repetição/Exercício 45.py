@@ -19,10 +19,18 @@
 # 08 - C
 # 09 - B
 # 10 - A
+# Após concluir isto você poderia incrementar o programa permitindo que o professor digite o gabarito da prova antes dos alunos usarem o programa
 
-listaRespostaProva = ['A','B','C','D','E','E','D','C','B','A']
+print('Área de Professor')
+listaRespostaProva = []
 listaTodasNotas = []
 
+#listaRespostaProva = ['A','B','C','D','E','E','D','C','B','A']
+for i in range(10):
+  gabarito = input('Insira a resposta da %i° pergunta.'%(i+1))
+  listaRespostaProva.append(gabarito.upper())
+
+print('\nÁrea do Aluno')
 while True: 
   listaRespostaAluno = []
   acertos = 0
@@ -38,18 +46,20 @@ while True:
     if listaRespostaAluno[i] == listaRespostaProva[i]:
       acertos += 1
 
+
   print('Total de acertos: %i'%(acertos))
   print('Nota: %i'%(acertos))
   listaTodasNotas.append(acertos)
-   
+  
+ 
   perguntaAluno = input('\nOutro aluno irá utilizar o sistema? [S/N]')
+  
   while perguntaAluno.upper() not in ('S','N'):
       perguntaAluno = input('\nOutro aluno irá utilizar o sistema? [S/N]')
 
   if perguntaAluno.upper() == 'N':
     break
-  
-  
+
 # Realiza a soma de todas as notas para depois realizar o cálculo de média
 totalNotas = 0
 for i in range(len(listaTodasNotas)):
