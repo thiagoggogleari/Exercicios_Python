@@ -57,4 +57,4 @@ for i in range(8):
   print('Range',tabela[j],'-',tabela[j+1],': ',end='')
   print(ranges[i])
   j += 2
-print('Range: acima10: ',ranges[i+1],end='')
+print('Range acima 1000:',ranges[i+1],end='')
