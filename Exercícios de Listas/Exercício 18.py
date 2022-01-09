@@ -47,7 +47,7 @@
 # Estou trabalhando ainda neste código, ele está funcional porém precisa ser melhorado.
 
 # Ainda falta:
-#   * Colocar um espaçamento dinâmico no resultado, para que todo ele fique sempre alinhado
+#   * (ok) - Colocar um espaçamento dinâmico no resultado, para que todo ele fique sempre alinhado
 #   * Codificar para que quando houver empate o programa mostre os candidatos empatados
 #   * Revisar
 
@@ -66,12 +66,14 @@ while True:
   else:
     print('Entrada inválida')
 
+print('-'*30)
 print('Programa finalizado')
-
-print('\nForam computados {} votos'.format(len(votos)))
+print('Foram computados {} votos'.format(len(votos)))
+print('-'*30)
 print()
 
 
+print('*'*30)
 print('Jogador - Votos - Porcentagem')
 
 melhorJogador = 0
@@ -80,14 +82,26 @@ votosMelhorJogador = 0
 for i in range(23):
   x = votos.count(i+1)
   porcentagem = (x*100)/len(votos)
-
+  
+  # Verifica melhor jogador
   if x > votosMelhorJogador:
     melhorJogador = i + 1 # número equivalente do Jogador
     votosMelhorJogador = x # qntd de votos   
     
-  
+  # Caso to jogador recebeu algum voto, ele é mostrado na tela
   if porcentagem != 0:
-    print('{}          {}'.format(i+1,x),end='')
-    print('       {:.1f}%'.format(porcentagem))
 
-print('O melhor jogador foi o número {}, com {} votos, correspondendo a {:.1f}% do total de votos'.format(melhorJogador,votosMelhorJogador,(votosMelhorJogador*100)/len(votos)))
+    # Para cálculo dos espaçamento
+    lenJogador = len(str(i+1)) 
+    lenVotos = len(str(x)) 
+    tamanho1 = 10
+    tamanho2 = 8
+    
+    print('{}'.format(i+1),end='') # Jogador
+    print(' '*(tamanho1 - lenJogador),end='') # Espaços
+    print('{}'.format(x),end='') # Votos
+    print(' '*(tamanho2 - lenVotos),end='') # Espaço
+    print('{:.1f}%'.format(porcentagem)) # Porcentagem
+
+print('*'*30)
+print('\nO melhor jogador foi o número {}, com {} votos, correspondendo a {:.1f}% do total de votos'.format(melhorJogador,votosMelhorJogador,(votosMelhorJogador*100)/len(votos)))
