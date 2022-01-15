@@ -1,3 +1,4 @@
+#18
 # Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo.
 # Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos.
 # Sua equipe foi contratada para desenvolver este programa, utilizando a linguagem de programação Python. Para computar cada voto, a
@@ -46,12 +47,14 @@
 
 # Estou trabalhando ainda neste código, ele está funcional porém precisa ser melhorado.
 
-# Ainda falta:
+# (concluído)Ainda falta:
 #   * (ok) - Colocar um espaçamento dinâmico no resultado, para que todo ele fique sempre alinhado
-#   * Codificar para que quando houver empate o programa mostre os candidatos empatados
-#   * Revisar
+#   * (ok) - Codificar para que quando houver empate o programa mostre os candidatos empatados
+#   * (ok) - Revisar
 
 votos = []
+empatados = [] 
+
 print('Enquete: Quem foi o melhor jogador?')
 
 while True:
@@ -66,14 +69,14 @@ while True:
   else:
     print('Entrada inválida')
 
-print('-'*30)
+print('-'*70)
 print('Programa finalizado')
 print('Foram computados {} votos'.format(len(votos)))
-print('-'*30)
+print('-'*70)
 print()
 
 
-print('*'*30)
+print('*'*70)
 print('Jogador - Votos - Porcentagem')
 
 melhorJogador = 0
@@ -86,9 +89,9 @@ for i in range(23):
   # Verifica melhor jogador
   if x > votosMelhorJogador:
     melhorJogador = i + 1 # número equivalente do Jogador
-    votosMelhorJogador = x # qntd de votos   
-    
-  # Caso to jogador recebeu algum voto, ele é mostrado na tela
+    votosMelhorJogador = x # qntd de votos 
+
+  # Caso o jogador tenha recebido algum voto, ele é mostrado na tela
   if porcentagem != 0:
 
     # Para cálculo dos espaçamento
@@ -103,5 +106,39 @@ for i in range(23):
     print(' '*(tamanho2 - lenVotos),end='') # Espaço
     print('{:.1f}%'.format(porcentagem)) # Porcentagem
 
-print('*'*30)
-print('\nO melhor jogador foi o número {}, com {} votos, correspondendo a {:.1f}% do total de votos'.format(melhorJogador,votosMelhorJogador,(votosMelhorJogador*100)/len(votos)))
+# Contagem dos votos, verificação de empates
+for i in range(23):
+  qntdVotosEmpate = votos.count(i+1)
+  # print(i+1)
+  # print(qntdVotosEmpate)
+  if(qntdVotosEmpate == votosMelhorJogador):
+    empatados.append(i+1)
+
+#print('Todos os votos registrados: {}'.format(votos))
+
+
+# Tela de apresentação final
+
+# Caso tenha somente um ganhador
+if(len(empatados) == 1):
+  print('-'*70)
+  print('\nO melhor jogador foi o número {}, com {} votos, correspondendo a {:.1f}% do total de votos'.format(melhorJogador,votosMelhorJogador,(votosMelhorJogador*100)/len(votos)))
+  print('-'*70)
+else:
+  print('-'*70)
+
+  # Caso tenha empate
+  print('Houve empate para o primeiro lugar!\n')
+  print('Os jogadores ',end='')
+  for i in range(len(empatados)):
+    if(i < ((len(empatados)-1))):
+      print(empatados[i],end='')
+      print(', ',end='')
+    else:
+      print(empatados[i],end='')
+ 
+  print(' obtiveram {} voto(s) e dividem a primeira colocação.'.format(votosMelhorJogador))
+  porcentagemEmpatados = (votosMelhorJogador*100)/len(votos)
+ 
+  print('Os votos de cada um deles correspondem a {:.1f}% do total de votos'.format(porcentagemEmpatados))
+  print('-'*70)
