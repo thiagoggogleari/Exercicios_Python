@@ -1,4 +1,3 @@
-#19
 # Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
 # "Qual o melhor Sistema Operacional para uso em servidores?"
 
@@ -36,35 +35,38 @@ while True:
     print('Entrada Inválida')
 
 
-print('\nForam computados {} votos.'.format(len(votos)))
-print('Os votos registrados foram: ')
-print(votos)
+print('\nForam computados {} voto(s).'.format(len(votos)))
+#print('Os votos registrados foram: ')
+#print(votos)
 
 maisVotado = 0
 qntdVotosMaisVotado = 0
 totalVotos = [] # Contagem total de votos
+empatados = []
 
-for i in range(6): # Quantidade de sistemas operacionais disponíveis
+
+for i in range(6): # Quantidade de sistemas operacionais
   somatoriaVotos = votos.count(i+1) # Conta o voto e adiciona o resultado a lista totalVotos
   totalVotos.append(somatoriaVotos)
-  
+
   if somatoriaVotos > qntdVotosMaisVotado:  # Verifica qual foi o mais votado
     maisVotado = i + 1 
     qntdVotosMaisVotado = somatoriaVotos
-  
-# numSistema = maisVotado
 
+for i in range(6):
+  if totalVotos[i] == qntdVotosMaisVotado:
+    empatados.append(i+1)
+
+# print('Empatados')
+# print(empatados)
+ 
 listaSistemas = ['Windows Server','Unix','Linux','Netware','Mac OS','Outro']
 sistema = listaSistemas[maisVotado -1]
  
-print('\nResumo dos votos')
-print(totalVotos)
 
+# Espaçamento da tabela
 espacos1 = 29
 espacos2 = 8
-
-# porcentagem = 17  #alterar
-# porcentagem1 = 3  # 
 
 print('\nSistema Operacional     Votos      %')
 print('-------------------     -----    -----')
@@ -73,9 +75,16 @@ for i in range(len(listaSistemas)):
   porcentagem = round((totalVotos[i] * 100) / len(votos),1)
   print('{}{}{}{}{}%'.format(listaSistemas[i],' '*(espacos1 - len(listaSistemas[i]) - len(str(totalVotos[i]))),totalVotos[i],' '*(espacos2 - len(str(porcentagem))),porcentagem))
 
+print('-------------------     -----    -----')
+print('Total',' ' *21, len(votos))
 
+# Caso haja empate entra na primeira condição
+if len(empatados) > 1:
+  print('\nHouve empate na primeira colocação entre os sistemas:')
+  for i in range(len(empatados)):
+    # Puxa da lista de sistemas conforme o número equivalente do sistema
+    print(listaSistemas[empatados[i] -1])
+  print('\nCada um com {:.1f}% dos votos.'.format((qntdVotosMaisVotado * 100)/len(votos)))
 
-
-print('\nO sistema operacional mais votado foi o {}, com {} votos, correspondendo a {:.1f}% dos votos'.format(sistema,qntdVotosMaisVotado,(qntdVotosMaisVotado * 100)/len(votos)))
-
-  
+else:
+  print('\nO sistema operacional mais votado foi o {}, com {} voto(s), correspondendo a {:.1f}% dos votos.'.format(sistema,qntdVotosMaisVotado,(qntdVotosMaisVotado * 100)/len(votos)))
