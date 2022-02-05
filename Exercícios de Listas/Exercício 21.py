@@ -99,3 +99,17 @@ for i in range(len(listaCarros)):
   print()
 
 print('\nO veículo com menor consumo é o {}'.format(listaCarros[veiculoMenorConsumo]))
+
+
+##############################################################################
+# Resposta obtida do programa
+
+# Relatório Final
+# 1 - Fusca       -      7 -   142.9 litros - R$  321.53
+# 2 - Gol         -     10 -   100.0 litros - R$  225.00
+# 3 - Vectra      -      8 -   125.0 litros - R$  281.25
+# 4 - Opala       -      5 -   200.0 litros - R$  450.00
+# 5 - Fiat Uno    -   12.5 -    80.0 litros - R$  180.00
+
+# O veículo com menor consumo é o Fiat Uno
+##############################################################################
