@@ -1,3 +1,5 @@
+# Insira o ip e máscara e o código retorna os endereços desta rede (menos ip da rede e de broadcast)
+
 import ipaddress
 
 def listar_ips_subrede(subrede):
