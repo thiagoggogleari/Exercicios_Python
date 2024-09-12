@@ -11,3 +11,4 @@ print(f"Todos os IPs da sub-rede {subrede}:")
 
 for ip in ips:
     print(ip)
+
