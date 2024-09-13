@@ -1,3 +1,5 @@
+# Este código verifica se a porta de um determinado host está aberta
+
 import socket
 
 def verifica_porta(host,porta):
